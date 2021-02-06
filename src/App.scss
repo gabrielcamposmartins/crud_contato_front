@@ -1,0 +1,130 @@
+$primary: #faa301;
+$secondary: #fff8ec;
+$text: rgb(2, 2, 2);
+$height: calc(100vh - 200px);
+
+body {
+  background: $secondary;
+  font-size: 20px;
+}
+
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+#root {
+  height: calc(100vh - 20px);
+  @include flexCenter(row);
+}
+.main {
+  @include flexCenter(row);
+  margin: 0 auto;
+  width: 80%;
+  background-color: #fff;
+}
+.btnSubmit {
+  background-color: $primary;
+  outline: $primary;
+  padding: 10px;
+  margin: 10%;
+}
+
+.btnEdit {
+  background: #4287f5;
+}
+
+.btnDelete {
+  background: #f13838;
+}
+
+.submitDiv {
+  height: 100px;
+  width: 100%;
+  justify-content: center;
+}
+
+.formTitle {
+  background: $primary;
+  width: 100%;
+  margin-top: 0px;
+}
+
+.tableBody {
+  overflow-y: scroll;
+  flex: 2;
+  height: 100%;
+}
+
+.tableItSelf {
+  margin-left: 50px;
+  height: $height;
+  border: 2px solid $primary;
+}
+
+table {
+  width: 100%;
+
+  flex: 2;
+  text-align: center;
+  border-collapse: collapse;
+  td {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+    color: $text;
+  }
+  th {
+    padding: 5px;
+    background-color: $primary;
+    color: lighten($text, 100%);
+    border-bottom: 1px solid #ddd;
+  }
+  tr:hover {
+    background-color: #f5f5f5;
+  }
+}
+
+form {
+  @include flexCenter(column);
+  //   box-shadow: 2px 10px 20px rgba(165, 165, 165, 0.637);
+  border: 2px solid $primary;
+  justify-content: space-between;
+  div {
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    div {
+      margin: 15px;
+    }
+  }
+  flex: 1;
+  height: $height;
+  background-color: $secondary;
+  input {
+    border: 2px solid $primary;
+    border-radius: 5px;
+    padding: 7px;
+    background-color: $secondary;
+    outline: $primary;
+  }
+  label {
+    color: $primary;
+    font-weight: bold;
+  }
+  h2 {
+    color: lighten($text, 100%);
+    text-align: center;
+  }
+}
+
+button {
+  padding: 7px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  color: lighten($text, 100%);
+  font-weight: bold;
+  text-align: center;
+  outline: $primary;
+}

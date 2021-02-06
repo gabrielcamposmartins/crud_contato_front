@@ -118,6 +118,7 @@ export default class Table extends Component {
           </td>
           <td>
             <button
+              className="btnEdit"
               onClick={(e) => {
                 this.edit(data[d]);
               }}
@@ -125,6 +126,7 @@ export default class Table extends Component {
               <AiFillEdit />
             </button>
             <button
+              className="btnDelete"
               onClick={(e) => {
                 this.delete(data[d].id);
               }}
@@ -144,20 +146,29 @@ export default class Table extends Component {
 
   render() {
     return (
-      <div>
-        <table>
-          <thead>
-            <tr>
-              <th>id</th>
-              <th>name</th>
-              <th>phone</th>
-              <th>email</th>
-              <th>actions</th>
-            </tr>
-          </thead>
-          <tbody>{this.state.rows}</tbody>
-        </table>
-      </div>
+      <table className="tableItSelf">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="5">
+              <div className="tableBody">
+                <table>
+                  {/* colspan="5" */}
+                  <tbody className="tableBody">{this.state.rows}</tbody>
+                </table>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     );
   }
 }
